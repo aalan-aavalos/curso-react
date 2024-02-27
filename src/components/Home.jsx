@@ -2,7 +2,7 @@ import React from "react";
 import NavigationBar from "./NavigationBar";
 
 import Card from "@mui/material/Card";
-import { CardContent, Avatar, Stack, Grid, Item } from "@mui/material";
+import { CardContent, Avatar, Stack, Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
 import data from "../data/employees 2.json";
