@@ -57,16 +57,20 @@ function Home() {
                   <Avatar {...stringAvatar(employees.Name)} />
                 </Stack>
                 <Typography gutterBottom variant="h5" component="div">
-                  {employees.Name}
+                  Nombre: {employees.Name}
                 </Typography>
                 {employees.Skills.map((skill) => (
                   <Typography gutterBottom variant="body1" component="div">
-                    {skill}
+                    Skills: {skill}
                   </Typography>
                 ))}
 
                 <Typography variant="body2" color="text.secondary">
-                  {employees.Spot}
+                  Spot: {employees.Spot}
+                </Typography>
+
+                <Typography variant="body2" color="text.secondary">
+                  Contrato: {employees.Contract.Name}
                 </Typography>
               </CardContent>
             </Card>
