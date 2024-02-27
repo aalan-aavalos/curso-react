@@ -45,8 +45,8 @@ function Home() {
       <NavigationBar />
 
       <Grid container spacing={2} sx={{ width: "98%", p: 2 }}>
-        {data.Employees.map((employees) => (
-          <Grid item xl={2} lg={3} md={4} sm={6} xs={12}>
+        {data.Employees.map((employees, index) => (
+          <Grid key={index} item xl={2} lg={3} md={4} sm={6} xs={12}>
             <Card sx={{ maxWidth: 300 }}>
               <CardContent>
                 <Stack
@@ -65,13 +65,20 @@ function Home() {
                   </Typography>
                 ))}
 
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body1" color="text.secondary">
                   Spot: {employees.Spot}
                 </Typography>
 
                 <Typography variant="body2" color="text.secondary">
                   Contrato: {employees.Contract.Name}
                 </Typography>
+
+                {employees.Documents.map((document) => (
+                  <Typography variant="body2" color="text.secondary">
+                    Documento: {document.Name}, Expiracion:{" "}
+                    {document.Expiration}
+                  </Typography>
+                ))}
               </CardContent>
             </Card>
           </Grid>
