@@ -5,7 +5,7 @@ import Card from "@mui/material/Card";
 import { CardContent, Avatar, Stack } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
-import data from "../data/employees 2.json"
+import data from "../data/employees 2.json";
 
 function stringToColor(string) {
   let hash = 0;
@@ -43,29 +43,26 @@ function Home() {
   return (
     <div>
       <NavigationBar />
-      {
-        data.Employees.map()
-      }
+      {data.Employees.map((Employees) => (
+        <Card sx={{ maxWidth: 300 }}>
+          <CardContent>
+            <Stack
+              direction="row"
+              spacing={2}
+              sx={{ display: "flex", justifyContent: "center", pt: 2 }}
+            >
+              <Avatar {...stringAvatar(Employees.Name)} />
+            </Stack>
+            <Typography gutterBottom variant="h5" component="div">
+              {Employees.Name}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {Employees.Spot}
+            </Typography>
+          </CardContent>
+        </Card>
+      ))}
       <h1>Hola</h1>
-
-      <Card sx={{ maxWidth: 300 }}>
-        <CardContent>
-          <Stack
-            direction="row"
-            spacing={2}
-            sx={{ display: "flex", justifyContent: "center", pt: 2 }}
-          >
-            <Avatar {...stringAvatar("Alan Negrete")} />
-          </Stack>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </Card>
     </div>
   );
 }
