@@ -2,8 +2,10 @@ import React from "react";
 import NavigationBar from "./NavigationBar";
 
 import Card from "@mui/material/Card";
-import {CardContent, Avatar, Stack} from "@mui/material";
+import { CardContent, Avatar, Stack } from "@mui/material";
 import Typography from "@mui/material/Typography";
+
+import data from "../data/employees 2.json"
 
 function stringToColor(string) {
   let hash = 0;
@@ -31,7 +33,7 @@ function stringAvatar(name) {
       bgcolor: stringToColor(name),
       width: 150,
       height: 150,
-      fontSize: 80
+      fontSize: 80,
     },
     children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
   };
@@ -41,12 +43,19 @@ function Home() {
   return (
     <div>
       <NavigationBar />
+      {
+        data.Employees.map()
+      }
       <h1>Hola</h1>
 
       <Card sx={{ maxWidth: 300 }}>
         <CardContent>
-          <Stack direction="row" spacing={2}>
-            <Avatar {...stringAvatar("Kent Dodds")} />
+          <Stack
+            direction="row"
+            spacing={2}
+            sx={{ display: "flex", justifyContent: "center", pt: 2 }}
+          >
+            <Avatar {...stringAvatar("Alan Negrete")} />
           </Stack>
           <Typography gutterBottom variant="h5" component="div">
             Lizard
