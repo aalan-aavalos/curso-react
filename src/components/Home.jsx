@@ -44,9 +44,9 @@ function Home() {
     <div>
       <NavigationBar />
 
-      <Grid container spacing={2}>
+      <Grid container spacing={2} sx={{ width: "98%", p: 2 }}>
         {data.Employees.map((employees) => (
-          <Grid item xs={8}>
+          <Grid item xl={2} lg={3} md={4} sm={6} xs={12}>
             <Card sx={{ maxWidth: 300 }}>
               <CardContent>
                 <Stack
@@ -59,6 +59,12 @@ function Home() {
                 <Typography gutterBottom variant="h5" component="div">
                   {employees.Name}
                 </Typography>
+                {employees.Skills.map((skill) => (
+                  <Typography gutterBottom variant="body1" component="div">
+                    {skill}
+                  </Typography>
+                ))}
+
                 <Typography variant="body2" color="text.secondary">
                   {employees.Spot}
                 </Typography>
