@@ -2,7 +2,7 @@ import React from "react";
 import NavigationBar from "./NavigationBar";
 
 import Card from "@mui/material/Card";
-import { CardContent, Avatar, Stack } from "@mui/material";
+import { CardContent, Avatar, Stack, Grid, Item } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
 import data from "../data/employees 2.json";
@@ -43,25 +43,30 @@ function Home() {
   return (
     <div>
       <NavigationBar />
-      {data.Employees.map((Employees) => (
-        <Card sx={{ maxWidth: 300 }}>
-          <CardContent>
-            <Stack
-              direction="row"
-              spacing={2}
-              sx={{ display: "flex", justifyContent: "center", pt: 2 }}
-            >
-              <Avatar {...stringAvatar(Employees.Name)} />
-            </Stack>
-            <Typography gutterBottom variant="h5" component="div">
-              {Employees.Name}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {Employees.Spot}
-            </Typography>
-          </CardContent>
-        </Card>
-      ))}
+
+      <Grid container spacing={2}>
+        {data.Employees.map((employees) => (
+          <Grid item xs={8}>
+            <Card sx={{ maxWidth: 300 }}>
+              <CardContent>
+                <Stack
+                  direction="row"
+                  spacing={2}
+                  sx={{ display: "flex", justifyContent: "center", pt: 2 }}
+                >
+                  <Avatar {...stringAvatar(employees.Name)} />
+                </Stack>
+                <Typography gutterBottom variant="h5" component="div">
+                  {employees.Name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {employees.Spot}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
       <h1>Hola</h1>
     </div>
   );
